@@ -1,4 +1,5 @@
-public int trap(int[] height) {
+public class TrappingRainWater {
+    public int trap(int[] height) {
         int low =0;
         int high = height.length-1;
         int water =0;
@@ -27,3 +28,5 @@ public int trap(int[] height) {
         return water;
         
     }
+    
+}
