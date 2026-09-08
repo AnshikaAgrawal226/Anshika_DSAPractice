@@ -1,5 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-
+/* 
 public class MergeIntervals {
     public int[][] merge(int[][] intervals) {
        //sort the given array on the basis of first index (intervals[i][0])
@@ -60,3 +61,32 @@ public class MergeIntervals {
 
     }
 }
+    */
+
+//Optimised solution
+public class MergeIntervals {
+    public int[][] merge(int[][] intervals) {
+       //sort the array on basis of first index<
+        Arrays.sort(intervals, (a,b)->Integer.compare(a[0], b[0]));
+        ArrayList<int[]> list = new ArrayList<>();
+        int start = intervals[0][0];
+        int end = intervals[0][1];
+        for(int i =1;i<intervals.length;  i++ ){
+            //overlaping intervals
+            if(end>=intervals[i][0]){
+                end = Math.max(end, intervals[i][1]);
+            }
+            //not overlaping
+            else{
+                list.add(new int[]{start,end});
+                start= intervals[i][0];
+                end = intervals[i][1];
+            }
+            
+        }
+        list.add(new  int[]{start,end});
+        return list.toArray(new int[list.size()][]);
+    }
+    
+}
+
