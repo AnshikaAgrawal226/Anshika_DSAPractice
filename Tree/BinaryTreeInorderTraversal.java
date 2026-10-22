@@ -3,7 +3,7 @@ package Tree;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.tree.TreeNode;
+//import javax.swing.tree.TreeNode;
 
 public class BinaryTreeInorderTraversal {
     //Definition for a binary tree node.
@@ -18,20 +18,20 @@ public class BinaryTreeInorderTraversal {
             this.left = left;
             this.right = right;
         }
-     }
+    }
 
     public List<Integer> inorderTraversal(TreeNode root) {
         ArrayList<Integer> list  = new ArrayList<>();
         inorder(root,list);
         return list;
     }
-        public void inorder(TreeNode node,ArrayList list){
-            if(node==null){
-                return;
-            }
-            inorder(node.left,list);
-            list.add(node.val);
-            inorder(node.right,list);
+    public void inorder(TreeNode node,ArrayList<Integer> list){
+        if(node==null){
+            return;
         }
+        inorder(node.left,list);
+        list.add(node.val);
+        inorder(node.right,list);
+    }
         
 }
